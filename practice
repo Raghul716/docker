@@ -2,3 +2,17 @@ Publish first nginx using docker
 
 docker container run --publish 8080:80 nginx
 docker container run --publish 8080:80 --detach nginx
+
+Publish first mysql using docker 
+
+docker run --name <name> -e MYSQL_ROOT_PASSWORD=<password> -d mysql
+
+To monitor the docker images
+
+docker container top <name>
+docker container inspect <name>
+docker container logs <name>
+docker container stats <name>
+
+
+
