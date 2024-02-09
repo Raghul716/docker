@@ -1,0 +1,3 @@
+Publish first nginx using docker 
+
+docker container run --publish 8080:80 nginx
