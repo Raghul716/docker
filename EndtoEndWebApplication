@@ -27,6 +27,13 @@ Docker : Service Containers
 
 
 
+docker container run -d -e MARIADB_USER=db_user -e MARIADB_PASSWORD=db_pass -e MARIADB_DATABASE=frontend_app -e MARIADB_ROOT_PASSWORD=db_pass --name mariadb --network mynetwork mariadb
+
+docker container run -d -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_USER=db_user -e WORDPRESS_DB_PASSWORD=db_pass -e WORDPRESS_DB_NAME=frontend_app --name my_fnt_app -p 8080:80 --network mynetwork wordpress
+
+
+
+
 
 
 
