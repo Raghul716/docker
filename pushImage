@@ -1,0 +1,6 @@
+  321  docker login
+  322  docker tag mariadb:latest mariabd:0.0.7
+  323  docker images
+  324  docker tag mariabd:0.0.7 raghul716/mariadb_test:0.0.7
+  325  docker push raghul716/mariadb_test:0.0.7
+  326  history
