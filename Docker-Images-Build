@@ -1,0 +1,3 @@
+An image is a combination of file system and parameters. Images contains the binaries and depedencies.
+Image contains the data which is required to run the container.
+docker images       ---list out all the images
