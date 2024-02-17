@@ -1,3 +1,10 @@
 An image is a combination of file system and parameters. Images contains the binaries and depedencies.
 Image contains the data which is required to run the container.
 docker images       ---list out all the images
+Each image consists of a series of layers Docker makes use of union file systems to combine these layers into a single image.
+docker history <image-name>   ----- to show image layers
+How to tag a image
+docker tag SOURCE_IMAGE[:TAG] TARGET_IAMGE[:TAG]
+
+
+
