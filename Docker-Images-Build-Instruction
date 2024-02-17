@@ -90,7 +90,3 @@ docker build -t raghul716/nginx_custom:0.0.1 .
 
 
 
-
-
-
-
