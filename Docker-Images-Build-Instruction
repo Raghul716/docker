@@ -82,6 +82,69 @@ Now run the below command
 docker build -t raghul716/nginx_custom:0.0.1 .
 
 
+Breakdown of set of Instructions for docker file
+
+
+Certainly! A Dockerfile is a script used to create a Docker container image. It contains a series of instructions that are executed in order to build the image layer by layer. Each instruction in the Dockerfile represents a step in the process of creating the final container image. Here's a breakdown of common Dockerfile instructions and their meanings:
+
+FROM:
+
+Specifies the base image to build upon. It is the starting point for the Dockerfile.
+Example: FROM ubuntu:latest
+MAINTAINER (deprecated, often replaced with LABEL maintainer):
+
+Identifies the author or maintainer of the Dockerfile.
+Example: MAINTAINER Your Name <your.email@example.com>
+LABEL:
+
+Adds metadata to the image, providing information about the image or its maintainer.
+Example: LABEL maintainer="Your Name <your.email@example.com>"
+RUN:
+
+Executes commands in a new layer on top of the current image and commits the results.
+Example: RUN apt-get update && apt-get install -y some-package
+COPY:
+
+Copies files or directories from the build context (usually the local file system) into the image.
+Example: COPY ./src /app/src
+ADD:
+
+Similar to COPY, but it can also download files from URLs and unpack compressed files.
+Example: ADD https://example.com/some-file.tar.gz /app/
+WORKDIR:
+
+Sets the working directory for subsequent instructions.
+Example: WORKDIR /app
+EXPOSE:
+
+Informs Docker that the container will listen on specified network ports at runtime.
+Example: EXPOSE 80
+ENV:
+
+Sets environment variables in the image.
+Example: ENV NODE_ENV production
+CMD:
+
+Provides default command and/or parameters for the container when it starts.
+Example: CMD ["npm", "start"]
+ENTRYPOINT:
+
+Configures the container to run as an executable.
+Example: ENTRYPOINT ["nginx", "-g", "daemon off;"]
+VOLUME:
+
+Creates a mount point for externally mounted volumes or other containers.
+Example: VOLUME /data
+USER:
+
+Sets the username or UID to use when running the image.
+Example: USER appuser
+ARG:
+
+Defines variables that users can pass at build-time to the builder with the docker build command.
+Example: ARG version=latest
+
+
 
 
 
