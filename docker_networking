@@ -1,1 +1,8 @@
+Docker Network: Connect Containers to other containers and connect containers to Host Machine.
+Docker containers and services can be connected with each other.
+Containers and Services don't need to be aware where they are deployed either it be in same host or multiple hosts
+Container and Services can communicate, whether your docker hosts run linux, Windows, or a mix of OS.
 
+Each Container connect to virtual private network called "bridge".
+Bridge: This is default Network driver of Docker
+Containers which are deployed in default bridge network will be able to communicate with each other by using the IP addresses.
