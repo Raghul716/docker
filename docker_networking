@@ -41,4 +41,9 @@ To identify host port and container port
 To identify IP address of running container
 #docker inspect Container_name -f {{.NetworkSettings.IPAddress}}
 
+To remove all unused network
+#docker network prune
+
+
+
 
