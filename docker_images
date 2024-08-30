@@ -1,1 +1,14 @@
+In Docker, Everything is based on Images. An Image is a combination of a file system and parameters. Images contains the binaries and dependencies.
+Images contains the data which is required to run container.
+Docker Images can be downloaded for Docker Hub.
+Images can be commited with changes and have multiple versions.
 
+Docker Images Differentiation:  
+       Base Image: Images that have no parent image, usually images with an OS like ubuntu, busybox or debian
+       Child Image: Images that build on base images and add additional functionality
+       Official Images: Images that are officially maintained and supported by the Docker folks.
+       User Images: Images created by users like us. user/image_name
+
+Docker Image Layer
+      docker history <Image_name>
+      
