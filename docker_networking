@@ -38,3 +38,7 @@ To disconnect a running container to a network
 To identify host port and container port
 # docker port container_name/container_id
 
+To identify IP address of running container
+#docker inspect Container_name -f {{.NetworkSettings.IPAddress}}
+
+
