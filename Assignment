@@ -1,0 +1,27 @@
+# TASK1
+Database Upgrade with volumes in Containers,
+Create mysql container with some specific version with Volume named mysql-db
+After staring the container verify the container status
+Go to database and create some Data
+Stop and remove the container
+start new MySQL container with existing volumes and verify the data
+
+# Answer
+docker container run -d --name mysql-test -e MYSQL_ROOT_PASSWORD=Bayer@5678 --mount source=mysql-db,target=/var/lib/mysql mysql:8.4.2
+docker inspect mysql-test 
+apt-get install mysql-client
+mysql -u root -p  -h 172.17.0.2 -P 3306
+mysql>CREATE DATABASE test-db;
+mysql> CREATE TABLE Persons (
+Mysql>PersonID int, 
+Mysql>LastName varchar(255),
+Mysql>FirstName varchar(255),
+Mysql>Address varchar(255),
+Mysql>City varchar(255),
+);
+
+Mysql>show tables;
+Mysql> INSERT INTO Persons ( PersonID, LastName, FirstName, Address, City ) VALUES ( 2662, 'Maharana' 'Ameya' 'Vasai 401202' 'Mumbai');
+Mysql> INSERT INTO Persons ( PersonID, LastName, FirstName, Address, City ) VALUES ( 2661, 'Yogeshwar' 'Raghul' 'Vasai 401202' 'Mumbai');
+
+
