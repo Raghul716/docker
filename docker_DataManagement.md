@@ -7,3 +7,14 @@ Docker has two options to solve this issue.
 
 Volumes: Are stored in a part of the host filesystem which is managed by Docker.
 
+# docker run -d --name mysqldb -e MYSQL_ALLOW_EMPTY_PASSWORD=true --mount source=mysql-db1,destination=/var/lib/mysql mysql
+# docker volume ls
+DRIVER    VOLUME NAME
+local     mysql-db1
+
+# docker container stop mysqldb
+# docker run -d --name mysqldb1 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --mount source=mysql-db1,destination=/var/lib/mysql mysql
+
+Here you see the volume mysql-db1 is attached to mysqldb and mysqldb1
+
+
