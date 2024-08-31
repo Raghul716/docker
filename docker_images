@@ -32,6 +32,8 @@ ENV: THis instruction sets the environment variable to the value.
 
 ADD: This instruction copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the image at the path <dest>
 
+COPY: This instruction copies files
+
 VOLUME: Volume instruction should be used to expose any database storage area, configuration storage, or files/folders created by your docker container.
 
 WORKDIR: WORKDIR instruction sets the working directory for any RUN , CMD , ADD instructions that follow it in the docker file.
