@@ -26,7 +26,9 @@ Sharing the Configuration files from the host machine to containers.
 Sharing source code or build artifacts between a development environment on the docker host and a container.
 
 #######RUN Nginx with Bind Mount##########
+
 docker container run -d --name nginx1 --mount type=bind,source=$(PWD),target=/app nginx
+
 Example:
 mkdir dockerbind
 cd dockerbind
