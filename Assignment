@@ -24,4 +24,37 @@ Mysql>show tables;
 Mysql> INSERT INTO Persons ( PersonID, LastName, FirstName, Address, City ) VALUES ( 2662, 'Maharana' 'Ameya' 'Vasai 401202' 'Mumbai');
 Mysql> INSERT INTO Persons ( PersonID, LastName, FirstName, Address, City ) VALUES ( 2661, 'Yogeshwar' 'Raghul' 'Vasai 401202' 'Mumbai');
 
+Mysql>commit;
+
+Select * from Persons;
+
+Mysql>exit;
+
+docker ps
+
+docker container stop mysql-test
+docker container rm mysql-test
+
+docker volume ls
+##you will find the volume mysql-db
+
+docker container run -d --name mysql-test1 -e MYSQL_ROOT_PASSWORD=Bayer@5678 --mount source=mysql-db,target=/var/lib/mysql mysql:9.0.1
+mysql -u root -p  -h 172.17.0.2 -P 3306
+>show databases
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+
 
