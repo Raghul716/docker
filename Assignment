@@ -43,6 +43,26 @@ mysql -u root -p  -h 172.17.0.2 -P 3306
 >show databases
 
 
+#Task 2
+Start Nginx Container
+Bind Mount the Nginx Container
+Edit the Index.html file in local System (Host Machine)
+Verify the change on Running Container.
+
+#Answer
+docker container run -d --name nginx-test -p 80:80 nginx
+docker exec -it nginx-test bash
+cd /usr/share/html/                #you will find two files index.html and 50.html
+docker container stop nginx-test
+docker container rm nginx-test
+mkdir testnginx
+cd testnginx/
+docker container run -d --name nginx-bind -p 8080:80 --mount type=bind,source="$(pwd)",target=/usr/share/nginx/html nginx
+docker exec -it nginx-bind bash
+exit
+touch index.html
+vim index.html
+Access the nginx web browser to check 
 
 
 
