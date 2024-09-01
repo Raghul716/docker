@@ -1,1 +1,48 @@
+Normal flow:
 
+Docker file--------------------------------->Docker Build Command---------------------------------->Docker Image
+
+Build Image in Docker compose Workflow -
+docker-compose build
+docker compose build
+
+Docker compose Build properties:
+
+1.build/context: It defines either a path to a directory containing a Docker file or a URL to a git repository.
+
+build:
+ context: ./dir
+
+OR
+
+Services:
+ webapp:
+  build: https://github.com/
+
+2. Image: Overrides the image name specified in the docker file.
+
+Build: 
+ context:
+ dockerfile: Dockerfile.dev
+image: custom-image-name:tag
+
+3 dockerfile: Specifies an alternative Dockerfile for the build
+4 args: Passes build arguments to the build context. Useful for dynamically setting values during the build.
+5 tags: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--
