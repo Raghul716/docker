@@ -1,0 +1,28 @@
+Create a directory 
+mkdir extend_image
+cd extend_image
+vim dockerfile
+=================================
+FROM nginx:latest
+
+LABEL version="0.0.1"
+LABEL maintainer="raghulyogeshwar716@gmail.com"
+
+WORKDIR /usr/share/nginx/html
+
+COPY index.html index.html
+
+=================================
+
+Add custom index.html file in extend_image directory
+vim index.html
+
+================================================
+<h1> Hello Team, This is custom nginx Image </h1>
+================================================
+
+now build the docker image
+
+docker build -t raghul716/nginx_extended:0.0.1 extend_image/
+
+docker run -it -d -p 8080:80 --name nginx_extend raghul716/nginx_extended:0.0.1
