@@ -1,1 +1,147 @@
 
+An image is a combination of file system and parameters. Images contains the binaries and depedencies.
+Image contains the data which is required to run the container.
+docker images       ---list out all the images
+Each image consists of a series of layers Docker makes use of union file systems to combine these layers into a single image.
+docker history <image-name>   ----- to show image layers
+How to tag a image
+docker tag SOURCE_IMAGE[:TAG] TARGET_IAMGE[:TAG]
+
+HOW TO BUILD IMAGES
+
+Docker file Instructions are used to create the docker images.
+
+FROM: The FROM instructuction initialises a new build stage and sets the Base Image for the subsequent instructions.
+
+FROM <Image_name>:<Image_Tag>
+
+LABEL: Label added to iamge to organize iamges by project, record licensing information.
+
+LABEL com.example.version="0.0.1-beta"
+
+RUN: RUN instruction will execute any commands in a new layer on top of the current image and commit the results.
+
+CMD: CMD instruction should be used to run the software contained by your image, Along with any arguments
+
+CMD ["executable", "param1", "param2"]
+
+EXPOSE: Expose instruction indicates the ports on which a container listens for connections.
+
+EXPOSE <port>
+
+ENV: ENV instruction sets the environment variable to the value.
+
+to make new softwaare easier to run you can use ENV to update the PATH environment variable for the software your container installs.
+
+ADD: ADD instruction copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the image at the path <dest>.
+
+ADD hom*/mydir/   
+
+VOLUME: Volume instruction should be used to expose any database storage area configuration storage, or files/folders created by your docker container
+
+WORKDIR: WORKDIR instruction sets the working directory for any RUN, CMD, ADD instruction that follow it in the Dockerfile.
+
+
+####CREATE-CUSTOM-IMAGE####
+
+Docker Image is Build from DockerFile.
+Docker Build Syntax:
+docker build -t ImageName:TagName dir
+-t - is to mention a tag to the image.
+Dir - The directory where the Docker File is present.
+
+#############Create Custom Nginx Image and execute it#########################
+
+=========================================================================
+
+# Each instruction in this file generates a new layer that gets pushed to your local image cache.
+# The line below states we will base our new image on the latest official Ubuntu
+FROM ubuntu:latest
+
+#Identify the maintainer of an image
+LABEL version="0.0.1"
+LABEL maintainer="raghulyogeshwar716@gmail.com"
+
+#Update the image to the latest packages
+RUN apt-get update && apt-get upgrade -y
+
+#Install NGINX to test.
+RUN apt-get install nginx -y
+
+#Expose port 80
+EXPOSE 80
+
+# Last is the actual command to start up NGINX within our Container
+CMD ["nginx", "-g", "daemon off;"]
+
+==================================================================
+
+
+
+Now run the below command
+
+docker build -t raghul716/nginx_custom:0.0.1 .
+
+
+Breakdown of set of Instructions for docker file
+
+
+Certainly! A Dockerfile is a script used to create a Docker container image. It contains a series of instructions that are executed in order to build the image layer by layer. Each instruction in the Dockerfile represents a step in the process of creating the final container image. Here's a breakdown of common Dockerfile instructions and their meanings:
+
+FROM:
+
+Specifies the base image to build upon. It is the starting point for the Dockerfile.
+Example: FROM ubuntu:latest
+MAINTAINER (deprecated, often replaced with LABEL maintainer):
+
+Identifies the author or maintainer of the Dockerfile.
+Example: MAINTAINER Your Name <your.email@example.com>
+LABEL:
+
+Adds metadata to the image, providing information about the image or its maintainer.
+Example: LABEL maintainer="Your Name <your.email@example.com>"
+RUN:
+
+Executes commands in a new layer on top of the current image and commits the results.
+Example: RUN apt-get update && apt-get install -y some-package
+COPY:
+
+Copies files or directories from the build context (usually the local file system) into the image.
+Example: COPY ./src /app/src
+ADD:
+
+Similar to COPY, but it can also download files from URLs and unpack compressed files.
+Example: ADD https://example.com/some-file.tar.gz /app/
+WORKDIR:
+
+Sets the working directory for subsequent instructions.
+Example: WORKDIR /app
+EXPOSE:
+
+Informs Docker that the container will listen on specified network ports at runtime.
+Example: EXPOSE 80
+ENV:
+
+Sets environment variables in the image.
+Example: ENV NODE_ENV production
+CMD:
+
+Provides default command and/or parameters for the container when it starts.
+Example: CMD ["npm", "start"]
+ENTRYPOINT:
+
+Configures the container to run as an executable.
+Example: ENTRYPOINT ["nginx", "-g", "daemon off;"]
+VOLUME:
+
+Creates a mount point for externally mounted volumes or other containers.
+Example: VOLUME /data
+USER:
+
+Sets the username or UID to use when running the image.
+Example: USER appuser
+ARG:
+
+Defines variables that users can pass at build-time to the builder with the docker build command.
+Example: ARG version=latest
+
