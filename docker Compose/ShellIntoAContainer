@@ -1,0 +1,4 @@
+The docker-compose exec command allows you to run commands inside a running container of a service defined in your docker-compose.yml. It's useful for interacting with containers, such as opening a shell, running scripts, or debugging issues.
+
+docker-compose exec python_service ls #This command runs the ls command inside the python_service container, listing the files in its working directory.
+docker-compose exec python_service bash #Opens an interactive bash session in the python_service container, allowing you to run commands inside the container as if you're logged into it.
