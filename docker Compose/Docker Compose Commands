@@ -1,1 +1,7 @@
+#This commands builds, creates, starts and attaches to containers for a service
+docker compose up
+docker compose up -d [to run in detached mode]
+docker compose -f custom-applications.yml up -d
 
+#This commands builds or rebuilds the services in your compose file
+docker compose build 
