@@ -1,7 +1,22 @@
 #This commands builds, creates, starts and attaches to containers for a service
 docker compose up
-docker compose up -d [to run in detached mode]
-docker compose -f custom-applications.yml up -d
+docker compose up -d #to run in detached mode
+docker compose -f custom-applications.yml up -d  #to build and create container as per the file "custom-applications.yml"
 
 #This commands builds or rebuilds the services in your compose file
 docker compose build 
+docker compose build <service_name>  #Builds the image for a specific service.
+docker compose build --pull  #Pulls the latest version of the base image before building.
+docker compose build --parallel # Builds all services concurrently, which can speed up the build process, especially in large projects.
+docker compose build --build-arg BASE_IMAGE=python:3.9
+
+#The docker-compose logs command is used to view the logs of services running in your Docker Compose project.
+docker compose logs
+docker compose logs -f #Follows the logs in real-time
+docker-compose logs python_service #Shows logs for a specific service.
+docker-compose logs --tail 50 # Shows only the last 50 lines of logs for the services.
+
+
+
+
+
