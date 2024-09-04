@@ -41,8 +41,11 @@ becomes the leader.
 and update them by replicating the logs from the leader.
 
 ➢ Task Scheduling
+
 ➢ Load Balancing
+
 ➢ Rolling Updates
+
 ➢ Security
 
 
