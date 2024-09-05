@@ -1,1 +1,14 @@
-
+docker info      # To check swarm initialisation
+docker swarm init      # To initiate swarm 
+Note: If it fails and could not choose IP address to advertise always go for public IP address
+docker swarm init --advertise-addr <Public-IP>
+Note: It will provide a token which you have tp copy
+docker swarm join --token SWMTKN-1-4zhg1cnuo8ivn05ungok5o53t7hmcxrrz0d9bi9340j4qbg17a-11vi1oastt6di06055ud26sq1 10.2.28.33:2377
+docker swarm --help  # to check the commands
+docker service --help
+docker service create alpine ping www.google.com
+docker service ls
+docker service ps eloquent_driscoll
+docker service inspect eloquent_driscoll
+docker service update eloquent_driscoll --replicas 5
+docker service ls
