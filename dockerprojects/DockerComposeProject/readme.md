@@ -10,3 +10,4 @@ This project uses Docker Compose to manage two services:
 2. **Python Application**: A Python application that prints its version and environment.
 
 Both services are configured to run with Docker, using specific Dockerfiles and environment settings
+docker compose build
