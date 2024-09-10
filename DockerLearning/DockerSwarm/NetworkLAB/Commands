@@ -1,0 +1,19 @@
+# docker network ls
+
+# docker network create -d overlay my_swarm_network
+
+# docker service create --name postgress --network my_swarm_network -e POSTGRES_PASSWORD=Bayer@1967 postgres
+
+# docker service ls
+
+# docker service create --name drupa1 --network my_swarm_network -p 8080:80 drupal
+
+docker service ps postgress
+
+docker service ps drupa1
+
+docker container ls 
+
+docker container exec -it <container_ID> bash
+
+
