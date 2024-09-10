@@ -7,5 +7,4 @@
 3. Create web service to acess the DB and same network
 #  docker service create --name <service_name> --network <networ_name> -p 80:80 <image_name>
 
-
-
+You will find Load balancing happening when containers are created overlay network.
