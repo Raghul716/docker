@@ -1,0 +1,24 @@
+Understand the Secret Commands
+docker secret - -help
+
+Ways to Create Secret
+➤ By file:
+docker secret create <secret_name> <file_name>
+➤ By CLI:
+echo “Secret_String” | docker secret create <secret_name> -
+
+Inspect the Secret:
+docker secret inspect <secret_name>
+➤ Create Postgres Service with secrets:
+docker service create - -name <service_name> - -secret <username_secret> - -secret <pass_secret> -e POSTGRES_PASSWORD_FILE=/run/secrects/<pass_secret> -e POSTGRES_USER_FILE=run/secrects/<user_secret> <IMAGE>:TAG
+
+mkdir secretsexample
+cd secretsexample/
+vim db_pass.txt
+cat db_pass.txt
+docker secret create db_password db_pass.txt
+docker secrets ls
+echo "db_user" | docker secret create db_username -
+docker secret inspect db_password
+docker service create --name postgress1 --secret db_username --secret db_password -e POSTGRES_PASSWORD_FILE=/run/secrets/db_password -e POSTGRES_USER_FILE=/run/secrets/db_username postgres
+
