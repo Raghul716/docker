@@ -56,3 +56,7 @@ Public use.
 
 
 ..
+
+
+#  If you want to deploy all the service as docker stack please use the docker-stack.yml and command 
+docker stack deploy -c docker-stack.yaml voting_app
