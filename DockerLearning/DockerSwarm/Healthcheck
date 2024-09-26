@@ -1,0 +1,21 @@
+Health checks are exactly what they sound like - a way of checking the health of some resource.
+Docker has inbuilt functionality to check the Container Health.
+Docker health check can be applied in Docker Run Command, Docker File, Docker Service and Docker Stack.
+Docker health-check define weather the service is working or not.
+
+➤ HealthCheck instruction format:
+HEALTHCHECK [option] CMD <command>: The command that sets the container health check.
+➤ HEALTHCHECK instructions can check the health status when instantiating Docker containers.
+➤ HEALTHCHECK Supports following Options:
+➤ --interval=<interval>: The time interval between two health checks. The default value is 30 seconds.
+➤ --timeout=<interval>: The timeout for running the health check command. The health check fails if the timeout is exceeded. The default value is 30 seconds.
+
+➤ --retries=<number of times>: The container status is regarded as unhealthy if the health check fails continuously for a specified number of times. The default value is 3.
+➤ --start-period=<interval>: The initialization time of application startup. Failed health check during the startup is not counted. The default value is 0 second.
+➤ Verify the HEALTHCHECK of Docker Container
+➤ Verify HEALTHCHECK of Docker Service
+
+
+For eg:
+docker container run -d --name postgres2 --health-cmd="pg_isready -U postgres || exit 1" postgres
+docker service create --name postgresservice1 --health-cmd="pg_isready -U postgres || exit 1" postgres
