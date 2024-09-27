@@ -1,0 +1,25 @@
+Docker Swarm automatically try and place your containers to provide maximum resiliency within the service.
+Place the Container on Specific node, for monitoring for application functionality reason.
+One way to Manage Container Placement is ‘Service Constraints’. 
+Service constraints are used to control the nodes a service can be assigned to.
+
+Service Constraints can be added to creation time, or add/remove at update time. 
+By Creation of Hard Coded requirement, container placement fails if not matched. 
+Multiple Constraints can be assigned to a single service. 
+It supports key or key=value pair
+
+> First Let’s start the visualiser in Docker Swarm
+docker run -it -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer
+
+> Create Service on Manager Node Only
+docker service create --constraints node.role==manager <image_name>
+docker service create --name postgresdb -e POSTGRES_PASSWORD=Bayer@5678 --constraint node.role==manager postgres
+
+> Add Label on any Node and define Constraints
+docker node update --label-add=region=east-1-d <node_value>
+docker node update --label-add=region=Rack1 agent1
+
+docker service create --name postgresdb1 -e POSTGRES_PASSWORD=Bayer@5678 --constraint node.labels.region==rack1 postgres
+
+
+
